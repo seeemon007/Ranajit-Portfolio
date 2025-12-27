@@ -1,53 +1,61 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import "../CSS/Certificates.css";
 
 // ✅ Certificates data (added URLs for View button)
 const CERTS = {
   tech: [
     {
-      title: "Flipkart Hackathon",
-      org: "Flipkart",
-      date: "2022",
-      img: "/certs/flipkart.jpg",
-      link: "/certs/flipkart.jpg",
+      title: "Saviynt Identity Security for AI Age",
+      org: "Saviynt",
+      date: "2025-12-27",
+      img: "/certs/Saviynt.jpg",
+      link: "/certs/Saviynt.jpg",
     },
-    {
-      title: "Solution Challenge",
-      org: "Google Developers",
-      date: "2023",
-      img: "/certs/hack2skill.png",
-      link: "/certs/hack2skill.png",
-    },
-    {
-      title: "ADira",
-      org: "SCET AI Club",
-      date: "2025",
-      img: "/certs/adira.png",
-      link: "/certs/adira.png",
-    },
+    // {
+    //   title: "Flipkart Hackathon",
+    //   org: "Flipkart",
+    //   date: "2022",
+    //   img: "/certs/cert1.svg",
+    //   link: "/certs/cert1.svg",
+    // },
+    // {
+    //   title: "Solution Challenge",
+    //   org: "Google Developers",
+    //   date: "2023",
+    //   img: "/certs/cert2.svg",
+    //   link: "/certs/cert2.svg",
+    // },
+    // {
+    //   title: "ADira",
+    //   org: "SCET AI Club",
+    //   date: "2025",
+    //   img: "/certs/cert3.svg",
+    //   link: "/certs/cert3.svg",
+    // },
   ],
   other: [
-    {
-      title: "codathon",
-      org: "SCET tech fest",
-      date: "2025",
-      img: "/certs/codathon.png",
-      link: "/certs/codathon.png",
-    },
-    {
-      title: "bugbuzz",
-      org: "SCET tech fest",
-      date: "2025",
-      img: "/certs/bugbuzz.png",
-      link: "/certs/bugbuzz.png",
-    },
-    {
-      title: "Dataloom",
-      org: "SCET",
-      date: "2024",
-      img: "/certs/dataloom.png",
-      link: "/certs/dataloom.png",
-    },
+    // {
+    //   title: "codathon",
+    //   org: "SCET tech fest",
+    //   date: "2025",
+    //   img: "/certs/cert1.svg",
+    //   link: "/certs/cert1.svg",
+    // },
+    // {
+    //   title: "bugbuzz",
+    //   org: "SCET tech fest",
+    //   date: "2025",
+    //   img: "/certs/cert2.svg",
+    //   link: "/certs/cert2.svg",
+    // },
+    // {
+    //   title: "Dataloom",
+    //   org: "SCET",
+    //   date: "2024",
+    //   img: "/certs/cert3.svg",
+    //   link: "/certs/cert3.svg",
+    // },
   ],
 };
 
@@ -119,6 +127,10 @@ export default function Certificates() {
                 <img
                   src={c.img}
                   alt={c.title}
+                  onError={(e) => {
+                    if (e.currentTarget.src.includes("/certs/cert")) return;
+                    e.currentTarget.src = "/certs/cert1.svg";
+                  }}
                   style={{
                     width: "100%",
                     height: 160,
@@ -179,6 +191,10 @@ export default function Certificates() {
             <motion.img
               src={selectedCert.img}
               alt={selectedCert.title}
+              onError={(e) => {
+                if (e.currentTarget.src.includes("/certs/cert")) return;
+                e.currentTarget.src = "/certs/cert1.svg";
+              }}
               initial={{ scale: 0.8 }}
               animate={{ scale: 1 }}
               exit={{ scale: 0.8 }}

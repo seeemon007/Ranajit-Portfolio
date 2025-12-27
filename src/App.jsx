@@ -9,6 +9,7 @@ import About from './pages/About'
 import Contact from './pages/Contact'
 import NotFound from './pages/NotFound'
 import SkillNetwork from './pages/Skills'  
+import Certificates from './pages/Certificates'
 
 export default function App() {
   return (
@@ -21,6 +22,7 @@ export default function App() {
           <Route path="/skills" element={<SkillNetwork />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/resume" element={<Resume />} />
+          <Route path="/certificates" element={<Certificates />} />
           <Route path="/about" element={<About />} /> {/* ✅ fixed lowercase */}
           <Route path="/contact" element={<Contact />} />
           <Route path="*" element={<NotFound />} />
