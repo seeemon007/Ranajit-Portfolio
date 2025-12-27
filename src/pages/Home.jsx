@@ -3,15 +3,7 @@ import { motion } from 'framer-motion'
 import "../CSS/Home.css"
 import '../index.css' 
 
-
-// 🖼️ Import Assets
-import photo from '../../public/photo.jpg'
-import githubLogo from '../../public/github.png'
-import linkedinLogo from '../../public/linkedin.png'
-import gmailLogo from '../../public/gmail.png'
-import whatsappLogo from '../../public/whatsapp.png'
-import instagramLogo from '../../public/insta.png'
-import facebookLogo from '../../public/facebook.png'
+const publicUrl = (path) => `${import.meta.env.BASE_URL}${path.replace(/^\/+/, '')}`
 
 export default function Home() {
   const professions = [
@@ -23,12 +15,12 @@ export default function Home() {
   ]
 
   const quickLinks = [
-    { img: githubLogo, title: 'GitHub', link: 'https://github.com/seeemon007' },
-    { img: linkedinLogo, title: 'LinkedIn', link: 'https://www.linkedin.com/in/ranajit-karmakar/' },
-    { img: gmailLogo, title: 'Email', link: 'mailto:roonk007@gmail.com' },
-    { img: whatsappLogo, title: 'WhatsApp', link: 'https://wa.me/+919382246603' },
-    // { img: instagramLogo, title: 'Instagram', link: 'https://www.instagram.com/ranajit_karmakar/' },
-    // { img: facebookLogo, title: 'Facebook', link: 'https://www.facebook.com/ranajit.karmakar' },
+    { img: publicUrl('github.png'), title: 'GitHub', link: 'https://github.com/seeemon007' },
+    { img: publicUrl('linkedin.png'), title: 'LinkedIn', link: 'https://www.linkedin.com/in/ranajit-karmakar/' },
+    { img: publicUrl('gmail.png'), title: 'Email', link: 'mailto:roonk007@gmail.com' },
+    { img: publicUrl('whatsapp.png'), title: 'WhatsApp', link: 'https://wa.me/+919382246603' },
+    // { img: publicUrl('insta.png'), title: 'Instagram', link: 'https://www.instagram.com/ranajit_karmakar/' },
+    // { img: publicUrl('facebook.png'), title: 'Facebook', link: 'https://www.facebook.com/ranajit.karmakar' },
   ]
 
   return (
@@ -61,7 +53,7 @@ export default function Home() {
             className="photo-frame"
           >
             <motion.img
-              src={photo}
+              src={publicUrl('photo.jpg')}
               alt="Ranajit Karmakar"
               initial={{ scale: 0.8, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}

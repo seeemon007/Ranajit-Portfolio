@@ -2,15 +2,10 @@ import React, { useState } from "react";
 import { motion } from "framer-motion";
 import emailjs from "emailjs-com";
 
-import githubLogo from "../../public/github.png";
-import linkedinLogo from "../../public/linkedin.png";
-import gmailLogo from "../../public/gmail.png";
-import whatsappLogo from "../../public/whatsapp.png";
-import instagramLogo from "../../public/insta.png";
-import facebookLogo from "../../public/facebook.png";
-
 import "../CSS/Contact.css"
 import '../index.css' 
+
+const publicUrl = (path) => `${import.meta.env.BASE_URL}${path.replace(/^\/+/, '')}`
 
 export default function Contact() {
   const [form, setForm] = useState({
@@ -93,12 +88,12 @@ export default function Contact() {
   };
 
   const quickLinks = [
-    { img: githubLogo, title: "GitHub", link: "https://github.com/seeemon007" },
-    { img: linkedinLogo, title: "LinkedIn", link: "https://www.linkedin.com/in/ranajit-karmakar/" },
-    { img: gmailLogo, title: "Email", link: "mailto:ranajitk200@gmail.com" },
-    { img: whatsappLogo, title: "WhatsApp", link: "https://wa.me/+919382246603" },
-    // { img: instagramLogo, title: "Instagram", link: "https://www.instagram.com/kunj_2834/" },
-    // { img: facebookLogo, title: "Facebook", link: "https://www.facebook.com/kunj.desai.222608" },
+    { img: publicUrl('github.png'), title: "GitHub", link: "https://github.com/seeemon007" },
+    { img: publicUrl('linkedin.png'), title: "LinkedIn", link: "https://www.linkedin.com/in/ranajit-karmakar/" },
+    { img: publicUrl('gmail.png'), title: "Email", link: "mailto:ranajitk200@gmail.com" },
+    { img: publicUrl('whatsapp.png'), title: "WhatsApp", link: "https://wa.me/+919382246603" },
+    // { img: publicUrl('insta.png'), title: "Instagram", link: "https://www.instagram.com/kunj_2834/" },
+    // { img: publicUrl('facebook.png'), title: "Facebook", link: "https://www.facebook.com/kunj.desai.222608" },
   ];
 
   return (
