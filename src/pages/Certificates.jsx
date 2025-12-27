@@ -2,9 +2,6 @@ import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import "../CSS/Certificates.css";
 
-const publicUrl = (path) => `${import.meta.env.BASE_URL}${path.replace(/^\/+/, '')}`
-const certFallback = publicUrl('certs/cert1.svg')
-
 // ✅ Certificates data (added URLs for View button)
 const CERTS = {
   tech: [
@@ -12,8 +9,8 @@ const CERTS = {
       title: "Saviynt Identity Security for AI Age",
       org: "Saviynt",
       date: "2025-12-27",
-      img: publicUrl('certs/Saviynt.jpg'),
-      link: publicUrl('certs/Saviynt.jpg'),
+      img: "/certs/Saviynt.jpg",
+      link: "/certs/Saviynt.jpg",
     },
     // {
     //   title: "Flipkart Hackathon",
@@ -131,9 +128,8 @@ export default function Certificates() {
                   src={c.img}
                   alt={c.title}
                   onError={(e) => {
-                    if (e.currentTarget.dataset.fallbackApplied === '1') return;
-                    e.currentTarget.dataset.fallbackApplied = '1';
-                    e.currentTarget.src = certFallback;
+                    if (e.currentTarget.src.includes("/certs/cert")) return;
+                    e.currentTarget.src = "/certs/cert1.svg";
                   }}
                   style={{
                     width: "100%",
@@ -196,9 +192,8 @@ export default function Certificates() {
               src={selectedCert.img}
               alt={selectedCert.title}
               onError={(e) => {
-                if (e.currentTarget.dataset.fallbackApplied === '1') return;
-                e.currentTarget.dataset.fallbackApplied = '1';
-                e.currentTarget.src = certFallback;
+                if (e.currentTarget.src.includes("/certs/cert")) return;
+                e.currentTarget.src = "/certs/cert1.svg";
               }}
               initial={{ scale: 0.8 }}
               animate={{ scale: 1 }}
